@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  background-color: #d3f2cb;
+}
+/* Resetowanie marginesów i wypełnień */
+* {
+  margin: 0;
+  padding: 0;
+}

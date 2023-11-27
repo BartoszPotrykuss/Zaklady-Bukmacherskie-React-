@@ -1,0 +1,43 @@
+/* stylizowanie meczów */
+fieldset {
+    background-color: #f8f8f8;
+    border: none;
+    width: 15.9%;
+    margin: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #1a751d;
+}
+
+  /* nagłówek meczów */
+legend {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+  /* wszystkie przyciski */
+input[type="button"] {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+  /* po najechaniu na przycisk */
+input[type="button"]:hover {
+    background-color: #429044;
+}
+
+  /* po kliknięciu na przycisk */
+input[type="button"].clicked {
+    background-color: #285e2a;
+}
