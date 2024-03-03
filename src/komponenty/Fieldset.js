@@ -1,9 +1,8 @@
+import React, { useState } from 'react';
 import '../style/Fieldset.css';
 
 function Fieldset(props) {
-
-
-    let calkowityKurs;    
+    const [calkowityKurs, setCalkowityKurs] = useState(0);
 
     const zmienKolor = (id) => {
         let button = document.getElementById(id);
@@ -12,27 +11,24 @@ function Fieldset(props) {
     };
 
     const dodaj = (value) => {
-        calkowityKurs = document.querySelector("#kurs").innerHTML;
-        calkowityKurs *= value;
+        setCalkowityKurs(prevCalkowityKurs => prevCalkowityKurs + value);
     };
 
     const kurs = () => {
-        calkowityKurs = Math.round(calkowityKurs * 100)/100;
-        document.querySelector("#kurs").innerHTML= calkowityKurs;
+        setCalkowityKurs(prevCalkowityKurs => Math.round(prevCalkowityKurs * 100) / 100);
     };
 
     const wygrana = () => {
-        calkowityKurs = document.querySelector("#kurs").innerHTML;
         let pieniadze = document.querySelector("#pieniadze").value;
         let wygrana = pieniadze * calkowityKurs;
-        wygrana = Math.round(wygrana * 100)/100;
-        document.querySelector("#wygrana").innerHTML=wygrana + " PLN";        
+        wygrana = Math.round(wygrana * 100) / 100;
+        document.querySelector("#wygrana").innerHTML = wygrana + " PLN";
     }
 
     return (
-            <fieldset>
-                <legend>{props.tytul}</legend>
-                {props.druzyna1} <input
+        <fieldset>
+            <legend>{props.tytul}</legend>
+            {props.druzyna1} <input
                 type="button"
                 value={props.kurs1}
                 id={props.id1}
@@ -42,9 +38,9 @@ function Fieldset(props) {
                     kurs();
                     wygrana();
                 }}
-                /> 
-                <br />
-                {props.druzyna2} <input
+            />
+            <br />
+            {props.druzyna2} <input
                 type="button"
                 value={props.kurs2}
                 id={props.id2}
@@ -54,8 +50,8 @@ function Fieldset(props) {
                     kurs();
                     wygrana();
                 }}
-                />
-            </fieldset>
+            />
+        </fieldset>
     );
 }
 

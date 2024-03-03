@@ -3,7 +3,6 @@ import Header from './Header';
 import Mecze from './Mecze';
 import Obstawianie from './Obstawianie';
 import Footer from './Footer';
-import OcenaStrony from './OcenaStrony';
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <Mecze />
       <Obstawianie />
       <Footer />
-      <OcenaStrony />
     </div>
   );
 }
