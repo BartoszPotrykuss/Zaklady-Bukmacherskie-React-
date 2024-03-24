@@ -1,48 +1,39 @@
+import { useEffect, useState } from 'react';
 import '../style/Obstawianie.css';
 
-function Obstawianie () {
-    
-    let pieniadze;
-    let wygrana;
-    let podsumowanie;
-    let calkowityKurs;
+function Obstawianie ({ kurs }) {
 
-    const Wygrana = () => {
-        calkowityKurs = document.querySelector("#kurs").innerHTML;
-        pieniadze = document.querySelector("#pieniadze").value;
-        wygrana = pieniadze * calkowityKurs;
-        wygrana = Math.round(wygrana * 100)/100;
-        document.querySelector("#wygrana").innerHTML=wygrana + " PLN";        
-    }
+    const [stawka, setStawka] = useState(null);
+    const [wygrana, setWygrana] = useState(null);
+    const [podsumowanie, setPodsumowanie] = useState(null);
 
-    const Obstaw = () => {
-        Wygrana();
-        podsumowanie = "Obstawiono " + pieniadze + "zł z kursem " + calkowityKurs + "<br> Możliwa wygrana: " + wygrana + "zł.";
-        document.querySelector("#podsumowanie").innerHTML=podsumowanie;
-    }
+    useEffect(() => {
+        if (stawka !== null) {
+            setWygrana((stawka * kurs).toFixed(2));
+        }
+    }, [stawka, kurs]);
 
     return (
         <div className='Obstawianie'>
             <p>Ile pieniędzy chcesz obstawić?</p>
             <input 
                 type="text" 
-                id="pieniadze" 
-                onKeyUp={() => {
-                    Wygrana();
+                id="pieniadze"
+                value={stawka}
+                onChange={(e) => {
+                    setStawka(e.target.value)
                 }}
-                /> <br /> 
+            /> <br /> 
             <p>Twój kurs: </p>
-            <div id="kurs">1</div>
+            <div id="kurs" >{kurs}</div>
             <p>Do wygrania:</p>
-            <div id="wygrana"></div>
+            <div id="wygrana">{wygrana} PLN</div>
             <input 
                 type="button" 
-                value="Obstaw" 
-                onClick={() => {
-                    Obstaw();
-                }} 
-                />
-            <div id="podsumowanie"></div>
+                value="Obstaw"
+                onClick={() => setPodsumowanie(`Obstawiono ${stawka}zł z kursem ${kurs}. Możliwa wygrana: ${wygrana}zł.`)}
+            />
+            <div id="podsumowanie">{podsumowanie}</div>
         </div>
     );
 }
