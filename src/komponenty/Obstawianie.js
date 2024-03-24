@@ -27,11 +27,12 @@ function Obstawianie ({ kurs }) {
             <p>Twój kurs: </p>
             <div id="kurs" >{kurs}</div>
             <p>Do wygrania:</p>
-            <div id="wygrana">{wygrana} PLN</div>
+            <div id="wygrana">{wygrana} zł</div>
             <input 
+                id='obstaw'
                 type="button" 
                 value="Obstaw"
-                onClick={() => setPodsumowanie(`Obstawiono ${stawka}zł z kursem ${kurs}. Możliwa wygrana: ${wygrana}zł.`)}
+                onClick={() => setPodsumowanie(`Obstawiono ${stawka}zł z kursem ${kurs}. Możliwa wygrana: ${wygrana} zł.`)}
             />
             <div id="podsumowanie">{podsumowanie}</div>
         </div>
