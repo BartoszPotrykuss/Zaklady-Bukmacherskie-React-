@@ -1,5 +1,5 @@
 import Image from './Image.js';
-import logo from '../img/Logo.png';
+import logo from '../img/Logo1.png';
 import obstaw from '../img/obstaw.png';
 import zaklad from '../img/zaklad.png';
 import '../style/Header.css';
