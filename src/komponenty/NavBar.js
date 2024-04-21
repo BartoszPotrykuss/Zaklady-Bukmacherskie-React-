@@ -2,15 +2,26 @@ import React from 'react'
 import '../style/NavBar.css'
 
 const NavBar = () => {
+
+    const leagues = [
+        { name: 'UCL', url: '/ChampionsLeague' },
+        { name: 'PREMIER LEAGUE', url: '/PremierLeague', dataTest: 'premier-league-link' },
+        { name: 'LEAGUE 1', url: '/League1' },
+        { name: 'BUNDESLIGA', url: '/Bundesliga' },
+        { name: 'SERIE A', url: '/SerieA' },
+        { name: 'LA LIGA', url: '/LaLiga' }
+    ];
+
     return (
         <nav className='navbar'>
             <ul>
-                <li><a href="/ChampionsLeague">UCL</a></li>
-                <li><a data-test="premier-league-link" href="/PremierLeague">PREMIER LEAGUE</a></li>
-                <li><a href="/League1">LEAGUE 1</a></li>
-                <li><a href="/Bundesliga">BUNDESLIGA</a></li>
-                <li><a href="/SerieA">SERIE A</a></li>
-                <li><a href="/LaLiga">LA LIGA</a></li>
+            {leagues.map((league, index) => (
+                    <li key={index}>
+                        <a href={league.url} data-test={league.dataTest}>
+                            {league.name}
+                        </a>
+                    </li>
+                ))}
             </ul>
         </nav>
     )

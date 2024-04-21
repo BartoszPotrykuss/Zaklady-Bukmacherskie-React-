@@ -21,7 +21,7 @@ for (let i = 0; i < 10; i++) {
 function Mecze(props) {
     
   const [allTeamNames, setAllTeamNames] = useState(null);
-  const [kurs, setKurs] = useState(1); // Dodajemy stan kursu
+  const [kurs, setKurs] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,8 +46,8 @@ function Mecze(props) {
 
   // Funkcja do przekazywania kursu do komponentu Obstawianie
   const handleSetKurs = (kurs) => {
-    if (!isNaN(kurs)) { // Sprawdzamy czy kurs jest liczbą
-      setKurs(prevKurs => (prevKurs * kurs).toFixed(2)); // Mnożymy wartość kursu przez siebie
+    if (!isNaN(kurs)) { 
+      setKurs(prevKurs => (prevKurs * kurs).toFixed(2));
     }
   }
 
@@ -68,10 +68,10 @@ function Mecze(props) {
               kurs2={wylosowaneKursy[index][1]} 
               id1={`kurs${index+1}.1`} 
               id2={`kurs${index+1}.2`} 
-              setKurs={handleSetKurs} // Przekazujemy funkcję handleSetKurs
+              setKurs={handleSetKurs}
             />
           ))}
-          <Obstawianie kurs={kurs} /> {/* Przekazujemy kurs do komponentu Obstawianie */}
+          <Obstawianie kurs={kurs} />
       </div>
   );
 }
