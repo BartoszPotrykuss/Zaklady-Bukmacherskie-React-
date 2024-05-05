@@ -2,18 +2,12 @@ import React, { useState } from 'react';
 import '../style/Fieldset.css';
 
 function Fieldset(props) {
-
+    const [selectedButton, setSelectedButton] = useState(null);
 
     const zmienKolor = (idClicked, idUnClicked, kurs) => {
-        let buttonClicked = document.getElementById(idClicked);
-        let buttonUnClicked = document.getElementById(idUnClicked);
-        buttonClicked.classList.add("clicked");
-        buttonClicked.disabled = true;
-        buttonUnClicked.disabled = true;
+        setSelectedButton(idClicked);
         props.setKurs(kurs);
     };
-
-
 
     return (
         <fieldset>
@@ -25,6 +19,8 @@ function Fieldset(props) {
                 onClick={() => {
                     zmienKolor(props.id1, props.id2, props.kurs1);
                 }}
+                className={selectedButton === props.id1 ? "clicked" : ""}
+                disabled={selectedButton === props.id1}
             />
             <br />
             {props.druzyna2} <input
@@ -34,6 +30,8 @@ function Fieldset(props) {
                 onClick={() => {
                     zmienKolor(props.id2, props.id1, props.kurs2);
                 }}
+                className={selectedButton === props.id2 ? "clicked" : ""}
+                disabled={selectedButton === props.id2}
             />
         </fieldset>
     );

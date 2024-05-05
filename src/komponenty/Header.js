@@ -7,7 +7,7 @@ import '../style/Header.css';
 function Header() {
     return (
         <header>
-            <Image imageSource = {logo} alt = 'logo'/>
+            <Image imageSource = {logo} alt = 'logo' id='logo'/>
             <Image imageSource = {zaklad} alt = 'zaklad'/>
             <Image imageSource = {obstaw} alt = 'obstaw'/>
         </header>
