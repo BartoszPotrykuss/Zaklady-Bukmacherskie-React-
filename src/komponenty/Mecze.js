@@ -42,9 +42,8 @@ function Mecze(props) {
     };
 
     fetchData();
-  }, []);  // Pusta tablica oznacza, że useEffect zostanie wykonany tylko raz po zamontowaniu komponentu
+  }, []); 
 
-  // Funkcja do przekazywania kursu do komponentu Obstawianie
   const handleSetKurs = (kurs) => {
     if (!isNaN(kurs)) { 
       setKurs(prevKurs => (prevKurs * kurs).toFixed(2));

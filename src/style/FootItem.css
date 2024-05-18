@@ -1,12 +1,19 @@
 /* pierwsza część stopki */
-.Foot1 {
+.footItem {
     display: inline-block;
     margin-right: 20px;
     color: #063206;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 /*linki w  pierwszej części stopki */
-.Foot1 a
+.footItem a
 {
     color: #095d0c;
+    text-decoration: underline;
+    font-size: large;
+}
+.footItem a:hover
+{
+    color: #063b08;
+    cursor: pointer;
 }
